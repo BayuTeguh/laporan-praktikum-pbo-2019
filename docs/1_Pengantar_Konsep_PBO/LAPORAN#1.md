@@ -62,7 +62,6 @@ e. Polimorfisme
 3) Kelebihan PBO	       
         Salah satu kelebihan dari PBO dibandingan dengan pemrograman structural ialah program dapat lebih fleksibel dan modular, dan juga PBO memiliki konsep encapsulation yang memungkinkan penulis untuk menyembunyikan sebuah prosses.
     
-        sumber: http://arzhon.blog.binusian.org/keuntungan-oop-dibandingkan-dengan-prosedural/
 
 4)	Ada atribut merk, atribut kecepatan, dan atribut gear.
 
