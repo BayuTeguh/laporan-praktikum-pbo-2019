@@ -22,7 +22,10 @@
 ![contoh screenshot](img/Screenshoot-1.PNG)
 ![contoh screenshot](img/Screenshoot-3.PNG)
 
-Contoh link kode program : [ini contoh link ke kode program](../../src/Sepeda1841720207Bayu.java)
+Link kode program :
+
+[sepeda bkn main](../../src/Sepeda1841720207Bayu.java)
+
 Contoh link kode program : [ini contoh link ke kode program](../../src/SepedaDemo1841720207Bayu.java)
 
 ### Percobaan 2
