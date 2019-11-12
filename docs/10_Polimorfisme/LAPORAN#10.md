@@ -1,13 +1,11 @@
-# Laporan Praktikum #10 - Polimorfisme
+# Laporan Praktikum #11 - GUI (Graphical User Interface)  
 
 ## Kompetensi
 
-Setelah melakukan percobaan pada jobsheet ini, diharapkan mahasiswa mampu: 
-1. Memahami konsep dan bentuk dasar polimorfisme 
-2. Memahami konsep virtual method invication 
-3. Menerapkan polimorfisme pada pembuatan heterogeneous collection 
-4. Menerapkan polimorfisme pada parameter/argument method 
-5. Menerapkan object casting untuk meng-ubah bentuk objek 
+Setelah menyelesaikan lembar kerja ini mahasiswa diharapkan mampu: 
+1. Membuat aplikasi Graphical User Interface sederhana dengan bahasa pemrograman java; 
+2. Mengenal komponen GUI seperti frame, label, textfield, combobox, radiobutton, checkbox, textarea, menu, serta table; 
+3. Menambahkan event handling pada aplikasi GUI. 
  
 
 ## Ringkasan Materi
