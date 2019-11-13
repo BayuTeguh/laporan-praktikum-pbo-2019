@@ -184,12 +184,47 @@ Buatlah Sebuah Program yang mempunyai fungsi seperti kalkulator (mampu menjumlah
 
 ### Hasil Tugas
 
-1.
-![Tugas](img/Tugas.PNG)
-2.
-![Tugas](img/Tugas.PNG)
-3.
-![Tugas](img/Tugas.PNG)
+1. Class Kalkulator:
+
+![Tugas](img/Tugas1.PNG)
+![Tugas](img/Tugas2.PNG)
+![Tugas](img/Tugas3.PNG)
+![Tugas](img/Tugas4.PNG)
+![Tugas](img/Tugas5.PNG)
+![Tugas](img/Tugas6.PNG)
+
+link kode program: 
+   [link ke kode program ](../../src/Kalkulator1841720207Bayu.java)
+
+2. Class Design: 
+
+![Tugas](img/Tugas7.PNG)
+
+3. Hasil Operasi:
+
+* Penjumlahan: 
+
+![Tugas](img/Penjumlahan1.PNG)
+![Tugas](img/Penjumlahan2.PNG)
+![Tugas](img/Penjumlahan3.PNG)
+
+* Pengurangan:
+
+![Tugas](img/Pengurangan1.PNG)
+![Tugas](img/Pengurangan2.PNG)
+![Tugas](img/Pengurangan3.PNG)
+
+* Pembagian:
+
+![Tugas](img/Pembagian1.PNG)
+![Tugas](img/Pembagian2.PNG)
+![Tugas](img/Pembagian3.PNG)
+
+* Perkalian:
+
+![Tugas](img/Perkalian1.PNG)
+![Tugas](img/Perkalian2.PNG)
+![Tugas](img/Perkalian3.PNG)
 
 ## Kesimpulan
 
