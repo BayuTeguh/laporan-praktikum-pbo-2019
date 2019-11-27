@@ -188,40 +188,79 @@ A. Langkah Percobaan (HashSet)
 
 ### Percobaan 5 JTabPane, JTtree, JTable  
 
-1. Class Swing2 Design:
+1. Class From Koneksi Design:
   ![Design](img/per5.1.PNG)
 
-2. Jbutton cmdtambah
+2. Source code FromKoneksi:
   ![Source](img/per5.2.PNG)
+  ![Source](img/per5.3.PNG)
+  ![Source](img/per5.4.PNG)
+  ![Source](img/per5.5.PNG)
+  ![Source](img/per5.6.PNG)
 
 5. Hasil Run Program:
-   ![Hasil](img/per5.3.PNG)
+   ![Hasil](img/per5.7.PNG)
+
+  * Hasil penambahan data:
+   ![Hasil](img/per5.8.PNG)
+   ![Hasil](img/per5.9.PNG)
 
    link kode program: 
-   [link ke kode program ](../../src/Swing21841720207Bayu.java)
+   [link ke kode program ](../../src/FromKoneksi1841720207Bayu.java)
 
 ### Pertanyaan Percobaan 5
 
-1. Apa kegunaan komponen swing JTabPane, JTtree, pada percobaan 5? 
+1. Setelah menambah code pada action button klik, coba jalankan program dan tambahkan data. Apakah program berhasil menambahkan data? Jika tidak apakah penyebabnya? 
 
-2. Modifikasi program untuk menambahkan komponen JTable pada tab Halaman 1 dan tab Halaman 2 
+2. Jelaskan maksud source code untuk melakukan insert data diatas? 
+
+3. Buat Table model yang digunakan untuk memanipulasi tampilan pada Jtable, seperti pada code dibawah ini: 
+
+    ![Soal](img/Soal5.1.PNG)
+
+4. Jelaskan alur dari method ambil_data_tabel?
+
+5. Buat fungsi untuk merefresh sehingga data yang baru dapat ditampilkan pada tabel 2. 
 
 ### Jawaban Pertanyaan
 
-1. Fungsi dari komponen swing JTabPane digunakan untuk merubah tampilan atau pindah tab dengan klik tab, sementara JTtree untuk menampung atau menampilkan hasil yang sudah ditambahkan
+1. Data gagal ditambahkan karena tidak ada fungsi untuk mengambil data.
 
-2. Hasil modif
-    * Table halaman 1: 
-![Table](img/per5.4.PNG)
+2. Fungsi insert data diatas digunakan untuk menambah data.
 
-    * Table halaman 2: 
-![Table](img/per5.5.PNG)
+3. Table Model telah dibuat.
+
+    ![Hasil](img/JawabanPer5.1.PNG)
+
+4. Alur dari method ambil_data_tabel:
+    * Alur pertama adalah untuk mengambil data vektor dan setelahnya akan dibuat fungsi untuk menghapus event dan selanjutnya akan dibuat fungsi untuk  
+
+    * Setelah itu akan masuk ke dalam fungsi try cath yang akan digunakan untuk mengatasi error
+
+    * Di dalam try akan dipanggil fungsi buka_koneksi()
+
+    * Setelah itu akan dibuat statement yang akan digunakan untuk menyimpan nilai dari variabel mKoneksi
+
+    * Dan selanjutnya akan di buat objek sql untuk menyimpan nilai Select * From anggota dari tabel anggota yang sudah di buat
+
+    * Setelah itu akan dibuat perulangan untuk mengisi index array yang akan diisi oleh nilai yang diinputkan
+
+    * Setelah semua index di isi maka perulangan akan selesai dan data akan di masukkan ke dalam tabel
+
+    * Dan catch akan digunakan untuk mengecek apakah ada error atau tidak
+
+5. Fungsi untuk melakukan refresh:
+  ![Source](img/JawabanPer5.2.PNG)
+
+    * Hasil Running:
+    ![Jawaban](img/JawabanPer5.3.PNG)
+
+    * Setelah data dihapus:
+    ![Jawaban](img/JawabanPer5.4.PNG)
 
 ## Kesimpulan
 
-Dari percobaan dan tugas diatas kita sudah mempelajari tentang konsep dan contoh dari JFrame HelloGUI, Menangani Input Pada GUI, Manajemen Layout,
-Membuat GUI Melalui IDE Netbeans, dan JTabPane, JTtree, JTabl.
-
+        Dari percobaan dan tugas diatas kita sudah mempelajari tentang Collection yang dibagi menjadi 3 yaitu Set, List, Map, dan  JDBC API. Set mengikuti model himpunan, dimana objek/anggota yang tersimpan dalam Set harus unik, dan HashSet dapat digunakan untuk menyimpan elemen-elemen bebas-duplikat. Kelas HashSet merupakan suatu kelas konkrit yang mengimplementasikan Set, List digunakan untuk menyimpan sekumpulan objek berdasarkan urutan masuk (ordered) dan menerima duplikat, ArrayList digunakan untuk membuat array yang ukurannya dinamis, dan Perbedaaan mendasar map dengan collection yang lain untuk menyimpan objek pada Map, perlu sepasang objek, yaitu key yang bersifat unik dan nilai yang disimpan, HashMap adalah class implementasi dar Map, Map itu sendiri adalah interface yang memiliki fungsi untuk memetakan nilai dengan key unik. HashMap berfungsi sebagai memory record management, dimana setiap record dapat disimpan dalam sebuah Map. dan JDBC API merupakan Java Database Connectivity Application Programming Interface (JDBC  API). 
 
 ## Pernyataan Diri
 

@@ -1,22 +1,77 @@
+package AplikasiBiodata;
+
+
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bayu.percobaanAPI;
 
 /**
  *
  * @author WIN10 PRO EDUCATION
  */
 public class FromKoneksi1841720207Bayu extends javax.swing.JFrame {
-
+    private static Connection mKoneksi;
+    private DefaultTableModel mModel;
     /**
      * Creates new form FromKoneksi1841720207Bayu
      */
     public FromKoneksi1841720207Bayu() {
         initComponents();
+        mModel = new DefaultTableModel();
+        this.jTableBiodata.setModel(mModel);
+        mModel.addColumn("ID");
+        mModel.addColumn("Nama");
+        mModel.addColumn("Alamat");
+        mModel.addColumn("Telepon");
+        buka_koneksiBayu();
+        ambil_data_tabelBayu();
     }
+    private static void buka_koneksiBayu(){
+        if(mKoneksi == null){
+            try{
+                String url = "jdbc:mysql://localhost:3306/unyoh";//?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+                String user = "root";
+                String password = "";
+                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+                mKoneksi = DriverManager.getConnection(url, user, password);
+                System.out.println("sukses db");
+            }catch(SQLException t){
+                System.out.println("Error membuat koneksi" + t.getMessage());
+            }
+        }
+    }
+    
+    private void ambil_data_tabelBayu(){
+        mModel.getDataVector().removeAllElements();
+        mModel.fireTableDataChanged();
+        try {
+            buka_koneksiBayu();
+            Statement s;
+            s = mKoneksi.createStatement();
+            String sql = "Select * from anggota";
+            ResultSet r;
+            r = s.executeQuery(sql);
+            while (r.next()) {
+                Object[] o = new Object[4];
+                o[0] = r.getString("id");
+                o[1] = r.getString("nama");
+                o[2] = r.getString("alamat");
+                o[3] = r.getString("telp");
+                mModel.addRow(o);
+            }
+            r.close();
+            s.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this,"Terjadi kesalahan"+ e.getMessage());
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,21 +82,146 @@ public class FromKoneksi1841720207Bayu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTFNama = new javax.swing.JTextField();
+        jTFAlamat = new javax.swing.JTextField();
+        jTFTelepon = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableBiodata = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTFAlamat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFAlamatActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Nama");
+
+        jLabel2.setText("Alamat");
+
+        jLabel3.setText("Telepon");
+
+        jTableBiodata.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableBiodata);
+
+        jButton1.setText("Add");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Refresh");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFAlamat)
+                            .addComponent(jTFTelepon)
+                            .addComponent(jTFNama)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTFNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTFAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTFTelepon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTFAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFAlamatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFAlamatActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        buka_koneksiBayu();
+        String sqlkode = "Insert into anggota(nama, alamat, telp)"
+                +"values('"+this.jTFNama.getText()+"',"
+                +"'"+this.jTFAlamat.getText()+"',"
+                +"'"+this.jTFTelepon.getText()+"')";
+        
+        try {
+            PreparedStatement mStatement = mKoneksi.prepareStatement(sqlkode);
+            mStatement.executeUpdate();
+            mStatement.close();
+            JOptionPane.showMessageDialog(this, "data berhasil ditambah");
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(this, "terjadi kesalahan"+ex.getMessage());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:                                       
+        DefaultTableModel model = (DefaultTableModel) jTableBiodata.getModel();
+        int row = jTableBiodata.getSelectedRow();
+        if(row >= 0){
+        int hapus = JOptionPane.showConfirmDialog(null, "Apakah anda akan menghapusnya?",
+                "Silahkan",JOptionPane.YES_NO_OPTION);
+        if(hapus==0){
+        model.removeRow(row);
+
+            }                                       
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +259,15 @@ public class FromKoneksi1841720207Bayu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTFAlamat;
+    private javax.swing.JTextField jTFNama;
+    private javax.swing.JTextField jTFTelepon;
+    private javax.swing.JTable jTableBiodata;
     // End of variables declaration//GEN-END:variables
 }
